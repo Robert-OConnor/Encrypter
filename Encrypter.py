@@ -7,12 +7,6 @@
 #This program will encrypt either a file
 #or text in various encryption methods.
 
-
-
-#What is left to do.
-#File Encryption
-
-
 import os
 import random
 import struct
@@ -37,6 +31,7 @@ print('==================================================')
 print('               Welcome to Encrypter.')
 print('==================================================')
 
+#File Menu function to show file encryption options
 def fileMenu():
     fileChoice = input('''
     =========================================
@@ -49,12 +44,6 @@ def fileMenu():
 
     if fileChoice == '1':
         symmetricEncryption()
-    #elif fileChoice == '2':
-        #3DESEncryption
-    #elif fileChoice == '3':
-        #TwofishEncryption
-    #elif fileChoice == '4':
-        #RSAEncryption
     elif fileChoice == '2':
         print('Exiting program.')
         sys.exit(0)
@@ -68,6 +57,7 @@ def fileMenu():
 def symmetricEncryption():
     encryptionKey = Fernet.generate_key()
 
+    #Verifies the file exists
     input_file = input("Enter the path of your file: ")
     assert os.path.exists(input_file), "[+] There is no file in that location."
     f = open(input_file, 'r+')
@@ -77,7 +67,7 @@ def symmetricEncryption():
 
     with open(input_file, 'rb') as f:
         data = f.read()
-
+    #Encrypts the file
     fernet = Fernet(encryptionKey)
     encrypted = fernet.encrypt(data)
 
@@ -89,6 +79,7 @@ def symmetricEncryption():
     print('is the only way to decrypt the file.\n')
     print('[+] File has been encrypted')
 
+#Text Menu function to show text encryption choices
 def textMenu():
     textChoice = input('''
     =========================================
@@ -146,6 +137,7 @@ def base64Encryption():
 print('With this program you can encrypt a file or text into different encryptions.')
 mainMenuChoice = input('Text or File Encryption? (1 for Text, 2 for File)\n')
 
+#Main menu function show text or file encryption choice
 def mainMenu():
     if mainMenuChoice == '1':
         textMenu()
@@ -155,4 +147,5 @@ def mainMenu():
         print('You must select what is in the menu.')
         mainMenu()
 
+#Calls main menu function to start program
 mainMenu()
