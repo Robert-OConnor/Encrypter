@@ -44,10 +44,7 @@ def fileMenu():
     =========================================
 
     1. Symmetric Encryption
-    2. Blowfish
-    3. Twofish
-    4. RSA
-    5. Quit\n
+    2. Quit\n
     ''')
 
     if fileChoice == '1':
@@ -58,7 +55,7 @@ def fileMenu():
         #TwofishEncryption
     #elif fileChoice == '4':
         #RSAEncryption
-    elif fileChoice == '5':
+    elif fileChoice == '2':
         print('Exiting program.')
         sys.exit(0)
     else:
@@ -119,7 +116,7 @@ def textMenu():
 
 #MD5 Hash based encryption
 def MD5Encryption():
-    textEncryption = input('Enter text to be encrypted.\n')
+    textEncryption = input('[+] Enter text to be encrypted: \n')
     #Encodes the string to MD5
     MD5Encrypt = hashlib.md5(textEncryption.encode())
     MD5Digest = MD5Encrypt.hexdigest()
@@ -127,7 +124,7 @@ def MD5Encryption():
 
 #SHA256 Hash based encryption
 def SHA256Encryption():
-    textEncryption = input('Enter text to be encrypted.\n')
+    textEncryption = input('[+] Enter text to be encrypted: \n')
     #Encodes the string to SHA256
     SHA256Encrypt = hashlib.sha256(textEncryption.encode())
     SHA256Digest = SHA256Encrypt.hexdigest()
@@ -135,7 +132,7 @@ def SHA256Encryption():
 
 #Base64 Text Encryption
 def base64Encryption():
-    textEncryption = input('Enter text to be encrypted.\n')
+    textEncryption = input('[+] Enter text to be encrypted: \n')
     #Encodes string into bytes
     b = textEncryption.encode("UTF-8")
     #Base64 encode the bytes
