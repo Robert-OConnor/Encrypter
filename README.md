@@ -1,2 +1,2 @@
 Introduction
-This program is designed to encrypt text and files using various methods.
+This program is designed to encrypt files and generate file hash using various methods.

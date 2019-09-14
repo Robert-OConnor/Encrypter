@@ -4,8 +4,8 @@
 
 #Created by: Robert O'Connor
 #Class: NTS370
-#This program will encrypt either a file
-#or text in various encryption methods.
+#This program will encrypt a file
+#and can create hashes of files.
 
 import os
 import random
@@ -35,7 +35,7 @@ print('==================================================')
 def fileMenu():
     fileChoice = input('''
     =========================================
-    Now choose the method of text encryption.
+    Now choose the method of file encryption.
     =========================================
 
     1. Symmetric Encryption
@@ -80,24 +80,29 @@ def symmetricEncryption():
     print('[+] File has been encrypted')
 
 #Text Menu function to show text encryption choices
-def textMenu():
+def hashGeneration():
     textChoice = input('''
-    =========================================
-    Now choose the method of text encryption.
-    =========================================
+    ==========================================
+    Choose the method of file hash generation.
+    ==========================================
 
-    1. MD5 Hash
-    2. SHA256 Hash
-    3. Base64
+    1. MD5 Hash - Not finished
+    2. SHA256 Hash - Not finished
+    3. TBD
     4. Quit\n
     ''')
 
     if textChoice == '1':
-        MD5Encryption()
+        print('Not completed')
+        sys.exit(0)
+        #MD5Hash()
     elif textChoice == '2':
-        SHA256Encryption()
+        print('Not completed')
+        sys.exit(0)
+        #SHA256Hash()
     elif textChoice == '3':
-        base64Encryption()
+        print('TBD')
+        sys.exit(0)
     elif textChoice == '4':
         print('Exiting program.')
         sys.exit(0)
@@ -106,41 +111,20 @@ def textMenu():
         textMenu()
 
 #MD5 Hash based encryption
-def MD5Encryption():
-    textEncryption = input('[+] Enter text to be encrypted: \n')
-    #Encodes the string to MD5
-    MD5Encrypt = hashlib.md5(textEncryption.encode())
-    MD5Digest = MD5Encrypt.hexdigest()
-    print("[+] MD5 Encoded String: ", MD5Digest)
+def MD5Hash():
+    textEncryption = input('[+] Enter file to generate a hash: \n')
 
 #SHA256 Hash based encryption
-def SHA256Encryption():
-    textEncryption = input('[+] Enter text to be encrypted: \n')
-    #Encodes the string to SHA256
-    SHA256Encrypt = hashlib.sha256(textEncryption.encode())
-    SHA256Digest = SHA256Encrypt.hexdigest()
-    print('[+] SHA256 Encoded String: ', SHA256Digest)
+def SHA256Hash():
+    textEncryption = input('[+] Enter file to generate a hash: \n')
 
-#Base64 Text Encryption
-def base64Encryption():
-    textEncryption = input('[+] Enter text to be encrypted: \n')
-    #Encodes string into bytes
-    b = textEncryption.encode("UTF-8")
-    #Base64 encode the bytes
-    e = base64.b64encode(b)
-    #Decode the Base64 bytes to string
-    s1 = e.decode("UTF-8")
-    #Print Base64 encoded string
-    print('[+] Base64 Encoded String:', s1)
-
-
-print('With this program you can encrypt a file or text into different encryptions.')
-mainMenuChoice = input('Text or File Encryption? (1 for Text, 2 for File)\n')
+print('With this program you can encrypt a file and generate file hashes using different methods.')
+mainMenuChoice = input('File Hash Generator or File Encryption? (1 for Hash, 2 for File Encryption)\n')
 
 #Main menu function show text or file encryption choice
 def mainMenu():
     if mainMenuChoice == '1':
-        textMenu()
+        hashGeneration()
     elif mainMenuChoice == '2':
         fileMenu()
     else:
