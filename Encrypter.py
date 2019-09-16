@@ -112,7 +112,7 @@ def MD5Hash():
     input_file = input("Enter the path of your file: ")
     assert os.path.exists(input_file), "[+] There is no file in that location."
     f = open(input_file, 'r+')
-    print('[+] File Exists')
+    print('\n[+] File Exists')
     f.close()
     BLOCKSIZE = 65536 #The size of each read from the file
     hasher = hashlib.md5() #Create the hash object in MD5
@@ -121,15 +121,15 @@ def MD5Hash():
         while len(buf) > 0: #While there is still data being read from the file
             hasher.update(buf) #Update the hash
             buf = afile.read(BLOCKSIZE) #Read the next block from the file
-    print(\n '[+] Hash has been generated')
-    print('This is the MD5 hash of the ',input_file, 'file:' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
+    print('\n[+] Hash has been generated')
+    print('This is the MD5 hash of the ',input_file, 'file:\n' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
 
 #SHA1 Hash based encryption
 def SHA1Hash():
     input_file = input("Enter the path of your file: ")
     assert os.path.exists(input_file), "[+] There is no file in that location."
     f = open(input_file, 'r+')
-    print('[+] File Exists')
+    print('\n[+] File Exists')
     f.close()
     BLOCKSIZE = 65536 #The size of each read from the file
     hasher = hashlib.sha1() #Create the hash object in SHA1
@@ -138,8 +138,8 @@ def SHA1Hash():
         while len(buf) > 0: #While there is still data being read from the file
             hasher.update(buf) #Update the hash
             buf = afile.read(BLOCKSIZE) #Read the next block from the file
-    print(\n '[+] Hash has been generated')
-    print('This is the SHA1 hash of the ',input_file, 'file:' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
+    print('\n[+] Hash has been generated')
+    print('This is the SHA1 hash of the ',input_file, 'file:\n' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
 
 print('With this program you can encrypt a file and generate file hashes using different methods.')
 mainMenuChoice = input('File Hash Generator or File Encryption? (1 for Hash, 2 for File Encryption)\n')
