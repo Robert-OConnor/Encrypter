@@ -37,6 +37,7 @@ def fileMenu():
     =========================================
     Now choose the method of file encryption.
     =========================================
+print(\n '[+] Hash has been generated')
 
     1. Symmetric Encryption
     2. Quit\n
@@ -87,19 +88,15 @@ def hashGeneration():
     ==========================================
 
     1. MD5 Hash - Not finished
-    2. SHA256 Hash - Not finished
+    2. SHA1 Hash - Not finished
     3. TBD
     4. Quit\n
     ''')
 
     if textChoice == '1':
-        print('Not completed')
-        sys.exit(0)
-        #MD5Hash()
+        MD5Hash()
     elif textChoice == '2':
-        print('Not completed')
-        sys.exit(0)
-        #SHA256Hash()
+        SHA1Hash()
     elif textChoice == '3':
         print('TBD')
         sys.exit(0)
@@ -112,11 +109,37 @@ def hashGeneration():
 
 #MD5 Hash based encryption
 def MD5Hash():
-    textEncryption = input('[+] Enter file to generate a hash: \n')
+    input_file = input("Enter the path of your file: ")
+    assert os.path.exists(input_file), "[+] There is no file in that location."
+    f = open(input_file, 'r+')
+    print('[+] File Exists')
+    f.close()
+    BLOCKSIZE = 65536 #The size of each read from the file
+    hasher = hashlib.md5() #Create the hash object in MD5
+    with open(input_file, 'rb') as afile: #Open the file to read it's bytes
+        buf = afile.read(BLOCKSIZE) #Read from the file. Take in the BLOCKSIZE amount
+        while len(buf) > 0: #While there is still data being read from the file
+            hasher.update(buf) #Update the hash
+            buf = afile.read(BLOCKSIZE) #Read the next block from the file
+    print(\n '[+] Hash has been generated')
+    print('This is the MD5 hash of the ',input_file, 'file:' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
 
-#SHA256 Hash based encryption
-def SHA256Hash():
-    textEncryption = input('[+] Enter file to generate a hash: \n')
+#SHA1 Hash based encryption
+def SHA1Hash():
+    input_file = input("Enter the path of your file: ")
+    assert os.path.exists(input_file), "[+] There is no file in that location."
+    f = open(input_file, 'r+')
+    print('[+] File Exists')
+    f.close()
+    BLOCKSIZE = 65536 #The size of each read from the file
+    hasher = hashlib.sha1() #Create the hash object in SHA1
+    with open('test.txt', 'rb') as afile: #Open the file to read it's bytes
+        buf = afile.read(BLOCKSIZE) #Read from the file. Take in the BLOCKSIZE amount
+        while len(buf) > 0: #While there is still data being read from the file
+            hasher.update(buf) #Update the hash
+            buf = afile.read(BLOCKSIZE) #Read the next block from the file
+    print(\n '[+] Hash has been generated')
+    print('This is the SHA1 hash of the ',input_file, 'file:' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
 
 print('With this program you can encrypt a file and generate file hashes using different methods.')
 mainMenuChoice = input('File Hash Generator or File Encryption? (1 for Hash, 2 for File Encryption)\n')
