@@ -15,4 +15,4 @@ Symmetric File Encryption
 This is an executable program with menus to help you easily use the program.
 
 ###### Linux:
-'./Encrypter.py'
+Use `./Encrypter.py` to run the program from a terminal.
