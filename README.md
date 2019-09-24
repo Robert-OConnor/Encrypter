@@ -3,10 +3,10 @@ This program is written in Python3 and is designed to do file encryption and fil
 
 
 ## Types of Hash Generation
-MD5<br/>
-SHA1<br/>
-SHA256<br/>
-SHA512<br/>
+MD5  
+SHA1  
+SHA256  
+SHA512  
 
 ## Types of File Encryption
 Symmetric File Encryption
