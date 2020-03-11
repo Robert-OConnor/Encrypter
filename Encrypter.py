@@ -27,7 +27,8 @@ print('''
 print('==================================================')
 print('               Welcome to Encrypter.')
 print('==================================================')
-
+print("\n1: Symmetric file encryption.\n2: Asymmetric file encryption.\n3: MD5 hash generation.")
+print("4: SHA1 hash generation.\n5: SHA256 hash generation.\n6: SHA512 hash generation.\n")
 
 #Encrypting the file
 def symmetric_encryption():
@@ -39,7 +40,7 @@ def symmetric_encryption():
     print("[+] Stored encryption key in key.key\n")
 
     #Asks for file location and verifies if it exists
-    input_file = input("Enter the path of your file: ")
+    input_file = input("Enter input file for symmetric encryption.")
     if path.exists(input_file):
         print("[+] File exists")
     else:
@@ -47,7 +48,7 @@ def symmetric_encryption():
         sys.exit(0)
     
     #Asks for the encrypted file to be stored
-    output_file = input("Enter the name of encrypted file to be stored: ")
+    output_file = input("Enter output file to store encrypted data: ")
 
     #Reads input file and stored content into data
     with open(input_file, 'rb') as f:
@@ -93,7 +94,7 @@ def asymmetric_encryption():
         f.write(pem)
 
     #Asks for the input file to be encrypted
-    input_file = input('Enter path of file to be encrypted: ')
+    input_file = input("Enter input file for asymmetric encryption.")
     #Verifies if the file exists
     if path.exists(input_file):
         print("[+] File exists")
@@ -113,7 +114,7 @@ def asymmetric_encryption():
         )
     )
 
-    output_file = input("Enter the name of encrypted file to be stored: ")
+    output_file = input("Enter output file to store encrypted data: ")
 
     with open(output_file, 'wb') as f:
         f.write(encrypted)
@@ -122,7 +123,7 @@ def asymmetric_encryption():
 
 #MD5 Hash of File
 def MD5_hash():
-    input_file = input("Enter the path of your file: ")
+    input_file = input("Enter file to generate MD5 Hash: ")
     if path.exists(input_file):
         print("[+] File exists")
     else:
@@ -140,7 +141,7 @@ def MD5_hash():
 
 #SHA1 Hash based encryption
 def SHA1_hash():
-    input_file = input("Enter the path of your file: ")
+    input_file = input("Enter file to generate SHA1 Hash: ")
     if path.exists(input_file):
         print("[+] File exists")
     else:
@@ -158,7 +159,7 @@ def SHA1_hash():
 
 #SHA256 Hash based encryption
 def SHA256_hash():
-    input_file = input("Enter the path of your file: ")
+    input_file = input("Enter file to generate SHA256 Hash: ")
     if path.exists(input_file):
         print("[+] File exists")
     else:
@@ -176,7 +177,7 @@ def SHA256_hash():
 
 #SHA512 Hash based encryption
 def SHA512_hash():
-    input_file = input("Enter the path of your file: ")
+    input_file = input("Enter file to generate SHA512 Hash: ")
     if path.exists(input_file):
         print("[+] File exists")
     else:
@@ -192,59 +193,47 @@ def SHA512_hash():
     print('\n[+] Hash has been generated')
     print('This is the SHA512 hash of the ',input_file, 'file:\n' ,hasher.hexdigest()) #Get the hexadecimal digest of the hash
 
+#parser = argparse.ArgumentParser(description='Hashing and File Encryption')
 
-parser = argparse.ArgumentParser(description='Hashing and File Encryption')
+#parser.add_argument("-s", "--symmetric", help="Use symmetric file encryption.")
+#parser.add_argument("-a", "--asymmetric", help="Use asymmetric file encryption.")
+#parser.add_argument("-m", "--md5", help="Path of file to generate MD5 hash.")
+#parser.add_argument("-s1", "--sha1", help="Path of file to generate SHA1 hash.")
+#parser.add_argument("-s256", "--sha256", help="Path of file to generate SHA256 hash.")
+#parser.add_argument("-s512", "--sha512", help="Path of file to generate SHA512 hash.")
 
-parser.add_argument('-s',
-                    metavar='InFile',
-                    type=str,
-                    help='Symmetric File Encryption',
-                    required=False)
+#args = parser.parse_args()
 
-parser.add_argument('-a',
-                    metavar='InFile',
-                    type=str,
-                    help='Asymmetric File Encryption',
-                    required=False)
+#if args.s == None or args.a == None or args.md5 == None or args.sha1 == None or args.sha256 == None or args.sha512 == None:
+#    print("Missing arguments")
+#else:
+#    if args.s:
+#        symmetric_encryption()
+#    if args.a:
+#        asymmetric_encryption()
+#    if args.md5:
+#        MD5_hash()
+#    if args.sha1:
+#        SHA1_hash()
+#    if args.sha256:
+#        SHA256_hash()
+#    if args.sha512:
+#        SHA512_hash()
 
-parser.add_argument('-md5',
-                    metavar='InFile',
-                    type=str,
-                    help='Get MD5 hash of file',
-                    required=False)
+choice = input("\nSelect option: ")
 
-parser.add_argument('-sha1',
-                    metavar='InFile',
-                    type=str,
-                    help='Get SHA1 hash of file',
-                    required=False)
-
-parser.add_argument('-sha256',
-                    metavar='InFile',
-                    type=str,
-                    help='Get SHA256 hash of file',
-                    required=False)
-
-parser.add_argument('-sha512',
-                    metavar='InFile',
-                    type=str,
-                    help='Get SHA512 hash of file',
-                    required=False)
-
-args = parser.parse_args()
-
-if args.s == None or args.a == None or args.md5 == None or args.sha1 == None or args.sha256 == None or args.sha512 == None:
-    print("Missing arguments")
+if choice == '1':
+    symmetric_encryption()
+elif choice == '2':
+    asymmetric_encryption()
+elif choice == '3':
+    MD5_hash()
+elif choice == '4':
+    SHA1_hash()
+elif choice == '5':
+    SHA256_hash()
+elif choice == '6':
+    SHA512_hash()
 else:
-    if args.s:
-        symmetric_encryption()
-    if args.a:
-        asymmetric_encryption()
-    if args.md5:
-        MD5_hash()
-    if args.sha1:
-        SHA1_hash()
-    if args.sha256:
-        SHA256_hash()
-    if args.sha512:
-        SHA512_hash()
+    print("Error processing choice.")
+    sys.exit(0)
