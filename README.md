@@ -2,7 +2,7 @@
 This program is written in Python3 and is designed to for file encryption and file hash generation.
 
 ## Installation
-Required libraries in order to run this program are specified in requirements.txt
+Required libraries in order to run this program are specified in requirements.txt  
 Run:
 ```bash
 pip3 install -r requirements.txt
