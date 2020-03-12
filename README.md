@@ -15,7 +15,7 @@ Required libraries in order to run this program are specified in requirements.tx
 -SHA3-512  
 
 ## Types of File Encryption
-Symmetric File Encryption using Fernet
+Symmetric File Encryption using Fernet  
 Asymmetric File Encryption using RSA
 
 ## How to use this program
