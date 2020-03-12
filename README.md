@@ -3,7 +3,10 @@ This program is written in Python3 and is designed to for file encryption and fi
 
 ## Installation
 Required libraries in order to run this program are specified in requirements.txt
-    Run `pip3 install -r requirements.txt`
+Run:
+```bash
+pip3 install -r requirements.txt
+```
 
 ## Types of Hash Generation
 MD5  
@@ -23,7 +26,7 @@ Since this program is written in python3, you need to specify python3 when runni
 
 ###### Linux:
 List available argument options:
-```shell
+```bash
 python3 Encrypter.py -h
 ```
 Example usage:
