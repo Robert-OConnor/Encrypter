@@ -6,13 +6,13 @@ Required libraries in order to run this program are specified in requirements.tx
     Run `pip3 install -r requirements.txt`
 
 ## Types of Hash Generation
--MD5  
--SHA1  
--SHA256  
--SHA384  
--SHA512  
--SHA3-256  
--SHA3-512  
+MD5  
+SHA1  
+SHA256  
+SHA384  
+SHA512  
+SHA3-256  
+SHA3-512  
 
 ## Types of File Encryption
 Symmetric File Encryption using Fernet  
@@ -22,5 +22,9 @@ Asymmetric File Encryption using RSA
 Since this program is written in python3, you need to specify python3 when running the program
 
 ###### Linux:
-Use `python3 Encrypter.py -h` to list possible parameters.
-    Example Usage: `python3 Encrypter --sha3_512 <file>`
+Use ```bash
+    python3 Encrypter.py -h
+    ``` to list possible parameters.
+    Example Usage: ```bash
+        python3 Encrypter --sha3_512 <file>
+        ```
