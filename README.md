@@ -6,13 +6,13 @@ Required libraries in order to run this program are specified in requirements.tx
     Run `pip3 install -r requirements.txt`
 
 ## Types of Hash Generation
-MD5  
-SHA1  
-SHA256  
-SHA384
-SHA512
-SHA3-256
-SHA3-512  
+-MD5  
+-SHA1  
+-SHA256  
+-SHA384
+-SHA512
+-SHA3-256
+-SHA3-512  
 
 ## Types of File Encryption
 Symmetric File Encryption using Fernet
