@@ -22,9 +22,10 @@ Asymmetric File Encryption using RSA
 Since this program is written in python3, you need to specify python3 when running the program
 
 ###### Linux:
-Use ```bash
-    python3 Encrypter.py -h
-    ``` to list possible parameters.
-    Example Usage: ```bash
-        python3 Encrypter --sha3_512 <file>
-        ```
+```bash
+python3 Encrypter.py -h
+```
+
+```bash
+python3 Encrypter --sha3_512 <file>
+```
