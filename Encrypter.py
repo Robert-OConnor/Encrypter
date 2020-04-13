@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+#Version 1.0
+
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
@@ -15,9 +17,9 @@ import sys
 #Encrypting the file
 def symmetric_encryption(option):
     #Create encryption key and store it in a file
-    encryptionKey = Fernet.generate_key()
+    encryption_key = Fernet.generate_key()
     file = open('key.key', 'wb')
-    file.write(encryptionKey)
+    file.write(encryption_key)
     file.close()
     print("[+] Stored encryption key in key.key\n")
 
@@ -36,7 +38,7 @@ def symmetric_encryption(option):
         data = f.read()
 
     #Encrypts data using fernet key
-    fernet = Fernet(encryptionKey)    
+    fernet = Fernet(encryption_key)    
     encrypted = fernet.encrypt(data)
 
     #Writes encrypted data to output_file
