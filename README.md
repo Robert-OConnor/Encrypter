@@ -23,12 +23,12 @@ Asymmetric File Encryption using RSA
 ## How to use this program
 Since this program is written in python3, you need to specify python3 when running the program
 
-###### Linux:
+###### Usage regardless of OS:
 List available argument options:
-```bash
+```
 python3 Encrypter.py -h
 ```
 Example usage:
-```bash
-python3 Encrypter --sha3_512 <file>
+```
+python3 Encrypter.py --sha3_512 <file>
 ```
